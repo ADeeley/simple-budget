@@ -15,12 +15,13 @@ export class AddTransactionComponent implements OnInit {
   ngOnInit() {
     this.addItemForm = new FormGroup({
       name: new FormControl(null, Validators.required),
-      amount: new FormControl(null, Validators.required),
+      amount: new FormControl(0, Validators.required),
     });
   }
 
   addItem() {
     this.transactionService.addTransaction(this.addItemForm.value);
+    this.addItemForm.reset();
   }
 
 }

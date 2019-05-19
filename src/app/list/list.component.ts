@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Transaction } from '../shared/models/transaction.model';
+import { TransactionService } from '../shared/services/transaction.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  transactions: Transaction[];
+
+  constructor(private transactionService: TransactionService) { }
 
   ngOnInit() {
+    this.transactions = this.transactionService.Transactions;
   }
 
 }
