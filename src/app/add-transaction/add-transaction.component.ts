@@ -9,18 +9,24 @@ import { TransactionService } from '../shared/services/transaction.service';
 })
 export class AddTransactionComponent implements OnInit {
   addItemForm: FormGroup;
+  groupsAvailable: string[];
 
   constructor(private transactionService: TransactionService) { }
 
   ngOnInit() {
     this.addItemForm = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      amount: new FormControl(0, Validators.required),
+      group: new FormControl('misc', Validators.required),
+      transaction: new FormGroup({
+        name: new FormControl(null, Validators.required),
+        amount: new FormControl(0, Validators.required),
+      })
     });
+
+    this.groupsAvailable = this.transactionService.groups;
   }
 
   addItem() {
-    this.transactionService.addTransaction(this.addItemForm.value);
+    this.transactionService.addTransaction(this.addItemForm.value.group, this.addItemForm.value.transaction);
     this.addItemForm.reset();
   }
 

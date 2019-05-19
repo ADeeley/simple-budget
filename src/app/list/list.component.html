@@ -1,15 +1,18 @@
 <div class="row">
   <div class="col-md-6">
     <h1>Transactions This Month</h1>
-    <table *ngIf="transactions.length > 0; else noTransaction" class="table">
+    <!--     <table *ngIf="transactionGroups.length > 0; else noTransaction" class="table"> -->
+    <table class="table">
       <thead>
         <tr>
+          <th scope="col">Group</th>
           <th scope="col">Name</th>
           <th scope="col">Cost</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let transaction of transactions">
+      <tbody *ngFor="let group of groupsAvailable">
+        <tr *ngFor="let transaction of transactionGroups[group]">
+          <td>{{group}}</td>
           <td>{{transaction.name}}</td>
           <td>&pound;{{transaction.amount}}</td>
         </tr>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from '../shared/models/transaction.model';
 import { TransactionService } from '../shared/services/transaction.service';
+import { TransactionGroup } from '../shared/models/transactionGroup.model';
 
 @Component({
   selector: 'app-list',
@@ -9,12 +10,14 @@ import { TransactionService } from '../shared/services/transaction.service';
 })
 export class ListComponent implements OnInit {
 
-  transactions: Transaction[];
+  transactionGroups: TransactionGroup;
+  groupsAvailable: string[];
 
   constructor(private transactionService: TransactionService) { }
 
   ngOnInit() {
-    this.transactions = this.transactionService.Transactions;
+    this.transactionGroups = this.transactionService.Transactions;
+    this.groupsAvailable = this.transactionService.groups;
   }
 
 }

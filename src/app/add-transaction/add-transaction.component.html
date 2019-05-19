@@ -2,11 +2,18 @@
   <div class="col-sm-12">
     <h1>Add An Item</h1>
     <form [formGroup]="addItemForm" (ngSubmit)="addItem()">
-      <label for="amount">Name</label>
-      <input formControlName="name" class="form-control mb-2" type="text" id="name" name="name">
-      <label for="amount">Cost (&pound;)</label>
-      <input formControlName="amount" class="form-control mb-3" type="number" id="amount" name="amount">
-      <button class="btn btn-success" [disabled]="!addItemForm.get('name').valid || !addItemForm.get('amount').valid">Add</button>
+      <label for="amount">Group</label>
+      <select formControlName="group" id="group" class="form-control">
+        <option *ngFor="let group of groupsAvailable" [value]="group">{{group}}</option>
+      </select>
+      <div formGroupName="transaction">
+        <label for="amount">Name</label>
+        <input formControlName="name" class="form-control mb-2" type="text" id="name" name="name">
+        <label for="amount">Cost (&pound;)</label>
+        <input formControlName="amount" class="form-control mb-3" type="number" id="amount" name="amount">
+        <button class="btn btn-success"
+          [disabled]="!addItemForm.get('transaction.name').valid || !addItemForm.get('transaction.amount').valid">Add</button>
+      </div>
     </form>
   </div>
 </div>
