@@ -5,7 +5,7 @@ import { Transaction } from '../models/transaction.model';
   providedIn: 'root'
 })
 export class TransactionService {
-  private transactions: Transaction[];
+  private transactions: Transaction[] = [];
 
   constructor() { }
 
@@ -13,15 +13,14 @@ export class TransactionService {
     return this.transactions;
   }
 
-/*   total(): number {
-  }
 
-  addTransaction(id: number): void {
-
+  addTransaction(newTransaction: Transaction): void {
+    this.transactions.push(newTransaction);
+    console.log(this.transactions);
   }
 
   removeTransaction(id: number): void {
 
-  } */
+  }
 
 }
