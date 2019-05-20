@@ -18,7 +18,7 @@ export class AddTransactionComponent implements OnInit {
       group: new FormControl('misc', Validators.required),
       transaction: new FormGroup({
         name: new FormControl(null, Validators.required),
-        amount: new FormControl(0, Validators.required),
+        amount: new FormControl(0, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
       })
     });
 
@@ -29,5 +29,7 @@ export class AddTransactionComponent implements OnInit {
     this.transactionService.addTransaction(this.addItemForm.value.group, this.addItemForm.value.transaction);
     this.addItemForm.reset();
   }
+
+
 
 }

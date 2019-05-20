@@ -9,6 +9,7 @@ import { TransactionGroup } from '../shared/models/transactionGroup.model';
 })
 export class ListComponent implements OnInit {
 
+  editMode = false;
   transactionGroups: TransactionGroup;
   groupsAvailable: string[];
 
@@ -19,4 +20,8 @@ export class ListComponent implements OnInit {
     this.groupsAvailable = this.transactionService.groups;
   }
 
+  editTransaction() {
+    this.editMode = true;
+    console.log('test');
+  }
 }

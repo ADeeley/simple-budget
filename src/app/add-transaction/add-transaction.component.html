@@ -12,6 +12,7 @@
         <input formControlName="amount" class="form-control mb-3" type="number" id="amount" name="amount">
         <button class="btn btn-success"
           [disabled]="!addItemForm.get('transaction.name').valid || !addItemForm.get('transaction.amount').valid">Add</button>
+        <button type="button" class="btn btn-danger ml-1">Delete</button>
       </div>
     </form>
   </div>
