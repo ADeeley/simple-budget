@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddTransactionComponent } from './add-transaction/add-transaction.component';
@@ -10,6 +10,7 @@ import { TransactionService } from './shared/services/transaction.service';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,14 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     HeaderComponent,
     HomeComponent,
     ListComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   providers: [TransactionService],
   bootstrap: [AppComponent]
