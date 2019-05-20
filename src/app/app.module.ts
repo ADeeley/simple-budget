@@ -14,6 +14,7 @@ import { ChartComponent } from './chart/chart.component';
 import { InoutComponent } from './inout/inout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AboutComponent } from './about/about.component';
     ChartComponent,
     InoutComponent,
     DashboardComponent,
-    AboutComponent
+    AboutComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
