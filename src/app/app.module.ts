@@ -15,6 +15,7 @@ import { InoutComponent } from './inout/inout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     InoutComponent,
     DashboardComponent,
     AboutComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
