@@ -1,33 +1,39 @@
 <div class="row">
   <div class="col-md-12">
-    <h1 class="display-4">Budget Manager</h1>
+    <h1 class="display-4">Dashboard</h1>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6">
-    <h2 class="h3">Transactions This Month</h2>
-    <!--     <table *ngIf="transactionGroups.length > 0; else noTransaction" class="table"> -->
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Group</th>
-          <th scope="col">Name</th>
-          <th scope="col">Cost</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let group of groupsAvailable">
-        <tr *ngFor="let transaction of transactionGroups[group]">
-          <td>{{group}}</td>
-          <td>{{transaction.name}}</td>
-          <td>&pound;{{transaction.amount}}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="col-md-6 mb-4">
+    <h2 class="h3">Visuals</h2>
+    <app-chart></app-chart>
   </div>
-  <ng-template #noTransaction>
-    <p>No transactions so far!</p>
-  </ng-template>
-  <div class="col-md-6">
-    <app-add-transaction></app-add-transaction>
+  <div class="col-md-6 mb-4">
+    <h2 class="h3">Total Spent</h2>
+    <app-inout></app-inout>
   </div>
 </div>
+
+<div class="col-md-6">
+  <h2 class="h3">Transactions This Month</h2>
+  <!--     <table *ngIf="transactionGroups.length > 0; else noTransaction" class="table"> -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Group</th>
+        <th scope="col">Name</th>
+        <th scope="col">Cost</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let group of groupsAvailable">
+      <tr *ngFor="let transaction of transactionGroups[group]">
+        <td>{{group}}</td>
+        <td>{{transaction.name}}</td>
+        <td>&pound;{{transaction.amount}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noTransaction>
+  <p>No transactions so far!</p>
+</ng-template>

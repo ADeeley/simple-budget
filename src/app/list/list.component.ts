@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Transaction } from '../shared/models/transaction.model';
 import { TransactionService } from '../shared/services/transaction.service';
 import { TransactionGroup } from '../shared/models/transactionGroup.model';
 

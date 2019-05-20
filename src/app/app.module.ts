@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ChartComponent } from './chart/chart.component';
+import { InoutComponent } from './inout/inout.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ChartComponent } from './chart/chart.component';
     HomeComponent,
     ListComponent,
     ErrorPageComponent,
-    ChartComponent
+    ChartComponent,
+    InoutComponent
   ],
   imports: [
     BrowserModule,
