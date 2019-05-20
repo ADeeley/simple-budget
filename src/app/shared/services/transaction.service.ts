@@ -40,10 +40,10 @@ export class TransactionService {
 
   getSumTotal(): number {
     const groups = Object.keys(this.transactionGroups);
-    let sumTotal: number;
+    let sumTotal = 0;
 
     groups.forEach((group) => {
-      sumTotal = this.transactionGroups[group].reduce((total, current) => total + +current.amount, 0);
+      sumTotal += this.transactionGroups[group].reduce((total, current) => total + +current.amount, 0);
     }, 0);
     console.log(`Sum Total: ${sumTotal}`);
 
