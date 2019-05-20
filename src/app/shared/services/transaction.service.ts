@@ -23,6 +23,16 @@ export class TransactionService {
     return Object.keys(this.transactionGroups);
   }
 
+  getGroupTotals() {
+    const groups = Object.keys(this.transactionGroups);
+    const totals: { [s: string]: number } = {};
+    groups.forEach((group) => {
+      totals[group] = this.transactionGroups[group].reduce((total, current) => total + +current.amount, 0);
+    });
+    console.log(totals);
+    return totals;
+  }
+
   addTransaction(group: string, newTransaction: Transaction): void {
     this.transactionGroups[group].push(newTransaction);
     console.log(this.transactionGroups);
