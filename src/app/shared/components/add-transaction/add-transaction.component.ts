@@ -12,6 +12,7 @@ export class AddTransactionComponent implements OnInit {
   addItemForm: FormGroup;
   groupsAvailable: string[];
   editMode = false;
+  index: number;
 
 
   constructor(private transactionService: TransactionService) { }
@@ -29,6 +30,7 @@ export class AddTransactionComponent implements OnInit {
 
     this.transactionService.onEditTransaction.subscribe((transactionDetail: TransactionDetail) => {
       this.editMode = true;
+      this.index = transactionDetail.index;
       this.addItemForm.patchValue(
         {
           group: transactionDetail.group,
@@ -48,6 +50,10 @@ export class AddTransactionComponent implements OnInit {
   cancelEdit() {
     this.editMode = false;
     this.addItemForm.reset();
+  }
+
+  deleteTransaction() {
+    this.transactionService.removeTransaction(this.addItemForm.value.group, this.index);
   }
 
 }

@@ -21,8 +21,8 @@ export class ListComponent implements OnInit {
     this.groupsAvailable = this.transactionService.groups;
   }
 
-  editTransaction(group: string, index: string) {
+  editTransaction(group: string, index: number) {
     console.log(`Group: ${group}, Index: ${index}`);
-    this.transactionService.editTransaction(group, index);
+    this.transactionService.startEditTransaction(group, index);
   }
 }

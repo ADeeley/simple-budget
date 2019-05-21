@@ -59,13 +59,18 @@ export class TransactionService {
     console.log(this.transactionGroups);
   }
 
-  editTransaction(group: string, index: string): void {
+  startEditTransaction(group: string, index: number): void {
     const transaction = this.transactionGroups[group][index];
-    this.onEditTransaction.next({ group, transaction });
+    this.onEditTransaction.next({ index, group, transaction });
   }
 
-  removeTransaction(id: number): void {
+  updateTransaction(group: string, index: number): void {
 
+  }
+
+  removeTransaction(group: string, index: number): void {
+    console.log(`Deleting transaction: ${index} in ${group}`);
+    this.transactionGroups[group].splice(index, 1);
   }
 
 }
