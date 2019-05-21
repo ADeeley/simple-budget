@@ -9,11 +9,11 @@
     </tr>
   </thead>
   <tbody *ngFor="let group of groupsAvailable">
-    <tr *ngFor="let transaction of transactionGroups[group]">
+    <tr *ngFor="let transaction of transactionGroups[group]; index as i">
       <td>{{group}}</td>
       <td>{{transaction.name}}</td>
       <td>&pound;{{transaction.amount}}</td>
-      <td><i (click)="editTransaction()" class="fa fa-edit fa-2x"></i></td>
+      <td><i (click)="editTransaction(group, i)" class="fa fa-edit fa-2x"></i></td>
     </tr>
   </tbody>
 </table>

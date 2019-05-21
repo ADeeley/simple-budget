@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TransactionService } from '../../services/transaction.service';
+import { TransactionDetail } from '../../models/transactionDetail.model';
 
 @Component({
   selector: 'app-add-transaction',
@@ -10,6 +11,7 @@ import { TransactionService } from '../../services/transaction.service';
 export class AddTransactionComponent implements OnInit {
   addItemForm: FormGroup;
   groupsAvailable: string[];
+
 
   constructor(private transactionService: TransactionService) { }
 
@@ -23,6 +25,17 @@ export class AddTransactionComponent implements OnInit {
     });
 
     this.groupsAvailable = this.transactionService.groups;
+
+    this.transactionService.onEditTransaction.subscribe((transactionDetail: TransactionDetail) => {
+      this.addItemForm.patchValue(
+        {
+          group: transactionDetail.group,
+          transaction: {
+            name: transactionDetail.transaction.name,
+            amount: transactionDetail.transaction.amount,
+          }
+        });
+    });
   }
 
   addItem() {

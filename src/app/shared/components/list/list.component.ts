@@ -9,7 +9,6 @@ import { TransactionGroup } from '../../models/transactionGroup.model';
 })
 export class ListComponent implements OnInit {
 
-  editMode = false;
   transactionGroups: TransactionGroup;
   groupsAvailable: string[];
 
@@ -20,8 +19,8 @@ export class ListComponent implements OnInit {
     this.groupsAvailable = this.transactionService.groups;
   }
 
-  editTransaction() {
-    this.editMode = true;
-    console.log('test');
+  editTransaction(group: string, index: string) {
+    console.log(`Group: ${group}, Index: ${index}`);
+    this.transactionService.editTransaction(group, index);
   }
 }

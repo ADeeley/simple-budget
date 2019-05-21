@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './shared/components/list/list.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ChartComponent } from './shared/components/chart/chart.component';
-import { InoutComponent } from './shared/components/inout/inout.component';
+import { TotalComponent } from './shared/components/inout/inout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
 import { TransactionsComponent } from './transactions/transactions.component';
@@ -26,7 +26,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     ListComponent,
     ErrorPageComponent,
     ChartComponent,
-    InoutComponent,
+    TotalComponent,
     DashboardComponent,
     AboutComponent,
     TransactionsComponent,

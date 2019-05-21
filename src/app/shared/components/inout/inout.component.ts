@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../../services/transaction.service';
 
 @Component({
-  selector: 'app-inout',
+  selector: 'app-total',
   templateUrl: './inout.component.html',
   styleUrls: ['./inout.component.sass']
 })
-export class InoutComponent implements OnInit {
+export class TotalComponent implements OnInit {
   sumTotal = '0.00';
 
 
