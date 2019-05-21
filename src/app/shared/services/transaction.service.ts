@@ -64,8 +64,8 @@ export class TransactionService {
     this.onEditTransaction.next({ index, group, transaction });
   }
 
-  updateTransaction(group: string, index: number): void {
-
+  updateTransaction(group: string, index: number, updatedTransaction: Transaction): void {
+    this.transactionGroups[group][index] = updatedTransaction;
   }
 
   removeTransaction(group: string, index: number): void {

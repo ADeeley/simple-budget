@@ -36,15 +36,20 @@ export class AddTransactionComponent implements OnInit {
           group: transactionDetail.group,
           transaction: {
             name: transactionDetail.transaction.name,
-            amount: transactionDetail.transaction.amount,
+            amount: transactionDetail.transaction.amount
           }
         });
     });
   }
 
-  addItem() {
-    this.transactionService.addTransaction(this.addItemForm.value.group, this.addItemForm.value.transaction);
+  submit() {
+    if (this.editMode) {
+      this.transactionService.updateTransaction(this.addItemForm.value.group, this.index, this.addItemForm.value.transaction);
+    } else {
+      this.transactionService.addTransaction(this.addItemForm.value.group, this.addItemForm.value.transaction);
+    }
     this.addItemForm.reset();
+    this.editMode = false;
   }
 
   cancelEdit() {
@@ -54,6 +59,7 @@ export class AddTransactionComponent implements OnInit {
 
   deleteTransaction() {
     this.transactionService.removeTransaction(this.addItemForm.value.group, this.index);
+    this.editMode = false;
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-12">
-    <form [formGroup]="addItemForm" (ngSubmit)="addItem()">
+    <form [formGroup]="addItemForm" (ngSubmit)="submit()">
       <label for="amount">Group</label>
       <select formControlName="group" id="group" class="form-control">
         <option *ngFor="let group of groupsAvailable" [value]="group">{{group}}</option>
@@ -11,7 +11,7 @@
         <label for="amount">Cost (&pound;)</label>
         <input formControlName="amount" class="form-control mb-3" type="number" id="amount" name="amount">
         <button class="btn btn-success"
-          [disabled]="!addItemForm.get('transaction.name').valid || !addItemForm.get('transaction.amount').valid">Add</button>
+          [disabled]="!addItemForm.get('transaction.name').valid || !addItemForm.get('transaction.amount').valid">{{this.editMode ? 'Update' : 'Add'}}</button>
         <button type="button" (click)="deleteTransaction()" class="btn btn-danger ml-1">Delete</button>
         <button *ngIf="this.editMode" (click)="cancelEdit()" type="button" class="btn btn-secondary ml-1">Cancel</button>
       </div>
