@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { AddTransactionComponent } from './add-transaction/add-transaction.component';
+import { AddTransactionComponent } from './shared/components/add-transaction/add-transaction.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
 import { TransactionsComponent } from './transactions/transactions.component';

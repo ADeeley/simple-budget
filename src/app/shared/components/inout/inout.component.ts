@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TransactionService } from '../shared/services/transaction.service';
+import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-inout',

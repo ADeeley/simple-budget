@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TransactionService } from '../shared/services/transaction.service';
-import { GroupTotals } from '../shared/models/groupTotals.model';
+import { TransactionService } from '../../services/transaction.service';
+import { GroupTotals } from '../../models/groupTotals.model';
 
 @Component({
   selector: 'app-chart',
