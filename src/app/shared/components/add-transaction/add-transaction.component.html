@@ -13,6 +13,7 @@
         <button class="btn btn-success"
           [disabled]="!addItemForm.get('transaction.name').valid || !addItemForm.get('transaction.amount').valid">Add</button>
         <button type="button" class="btn btn-danger ml-1">Delete</button>
+        <button *ngIf="this.editMode" (click)="cancelEdit()" type="button" class="btn btn-secondary ml-1">Cancel</button>
       </div>
     </form>
   </div>

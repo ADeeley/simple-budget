@@ -11,6 +11,7 @@ import { TransactionDetail } from '../../models/transactionDetail.model';
 export class AddTransactionComponent implements OnInit {
   addItemForm: FormGroup;
   groupsAvailable: string[];
+  editMode = false;
 
 
   constructor(private transactionService: TransactionService) { }
@@ -27,6 +28,7 @@ export class AddTransactionComponent implements OnInit {
     this.groupsAvailable = this.transactionService.groups;
 
     this.transactionService.onEditTransaction.subscribe((transactionDetail: TransactionDetail) => {
+      this.editMode = true;
       this.addItemForm.patchValue(
         {
           group: transactionDetail.group,
@@ -43,6 +45,9 @@ export class AddTransactionComponent implements OnInit {
     this.addItemForm.reset();
   }
 
-
+  cancelEdit() {
+    this.editMode = false;
+    this.addItemForm.reset();
+  }
 
 }
