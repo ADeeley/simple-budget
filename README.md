@@ -2,7 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-![Dashboard Screenshot](https://github.com/ADeeley/simple-budget/tree/master/src/assets/screenshots/dashboard-screenshot.png)
+![Dashboard Screenshot](src/assets/screenshots/dashboard-screenshot.png)
+
+![Transactions Screenshot](src/assets/screenshots/transactions-screenshot.png)
+
 
 ## Development server
 
