@@ -13,6 +13,7 @@ export class AddTransactionComponent implements OnInit {
   groupsAvailable: string[];
   editMode = false;
   index: number;
+  originalGroup: string;
 
 
   constructor(private transactionService: TransactionService) { }
@@ -31,6 +32,7 @@ export class AddTransactionComponent implements OnInit {
     this.transactionService.onEditTransaction.subscribe((transactionDetail: TransactionDetail) => {
       this.editMode = true;
       this.index = transactionDetail.index;
+      this.originalGroup = transactionDetail.group;
       this.addItemForm.patchValue(
         {
           group: transactionDetail.group,
@@ -44,22 +46,25 @@ export class AddTransactionComponent implements OnInit {
 
   submit() {
     if (this.editMode) {
-      this.transactionService.updateTransaction(this.addItemForm.value.group, this.index, this.addItemForm.value.transaction);
+      this.transactionService.updateTransaction(this.addItemForm.value.group, this.originalGroup, this.index, this.addItemForm.value.transaction);
     } else {
       this.transactionService.addTransaction(this.addItemForm.value.group, this.addItemForm.value.transaction);
     }
-    this.addItemForm.reset();
-    this.editMode = false;
+    this.cleanUpForm();
   }
 
   cancelEdit() {
-    this.editMode = false;
-    this.addItemForm.reset();
+    this.cleanUpForm();
   }
 
   deleteTransaction() {
     this.transactionService.removeTransaction(this.addItemForm.value.group, this.index);
-    this.editMode = false;
+    this.cleanUpForm();
   }
 
+  cleanUpForm() {
+    this.addItemForm.reset();
+    this.editMode = false;
+    this.originalGroup = null;
+  }
 }

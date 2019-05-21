@@ -64,7 +64,10 @@ export class TransactionService {
     this.onEditTransaction.next({ index, group, transaction });
   }
 
-  updateTransaction(group: string, index: number, updatedTransaction: Transaction): void {
+  updateTransaction(group: string, originalGroup: string, index: number, updatedTransaction: Transaction): void {
+    // First remove it entirely from the original group
+    this.transactionGroups[originalGroup].splice(index, 1);
+    // Then add the transaction afresh - allowing the group to be changed
     this.transactionGroups[group][index] = updatedTransaction;
   }
 
