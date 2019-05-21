@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TransactionService } from '../../services/transaction.service';
 import { TransactionGroup } from '../../models/transactionGroup.model';
 
@@ -11,6 +11,8 @@ export class ListComponent implements OnInit {
 
   transactionGroups: TransactionGroup;
   groupsAvailable: string[];
+  @Input() editable = false;
+
 
   constructor(private transactionService: TransactionService) { }
 

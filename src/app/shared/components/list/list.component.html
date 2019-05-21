@@ -5,7 +5,7 @@
       <th scope="col">Category</th>
       <th scope="col">Name</th>
       <th scope="col">Cost</th>
-      <th scope="col"></th>
+      <th *ngIf="editable" scope="col"></th>
     </tr>
   </thead>
   <tbody *ngFor="let group of groupsAvailable">
@@ -13,7 +13,7 @@
       <td>{{group}}</td>
       <td>{{transaction.name}}</td>
       <td>&pound;{{transaction.amount}}</td>
-      <td><i (click)="editTransaction(group, i)" class="fa fa-edit fa-2x"></i></td>
+      <td *ngIf="editable"><i (click)="editTransaction(group, i)" class="fa fa-edit fa-2x"></i></td>
     </tr>
   </tbody>
 </table>
