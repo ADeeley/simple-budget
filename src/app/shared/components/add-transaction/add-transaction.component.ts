@@ -23,7 +23,7 @@ export class AddTransactionComponent implements OnInit {
       group: new FormControl('misc', Validators.required),
       transaction: new FormGroup({
         name: new FormControl(null, Validators.required),
-        amount: new FormControl(0, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+        amount: new FormControl(0, [Validators.required, Validators.pattern(/(?=.*?\d)^\$?(([1-9]\d{0,2}(,\d{3})*)|\d+)?(\.\d{1,2})?$/)]),
       })
     });
 
@@ -46,7 +46,12 @@ export class AddTransactionComponent implements OnInit {
 
   submit() {
     if (this.editMode) {
-      this.transactionService.updateTransaction(this.addItemForm.value.group, this.originalGroup, this.index, this.addItemForm.value.transaction);
+      this.transactionService.updateTransaction(
+        this.addItemForm.value.group,
+        this.originalGroup,
+        this.index,
+        this.addItemForm.value.transaction
+      );
     } else {
       this.transactionService.addTransaction(this.addItemForm.value.group, this.addItemForm.value.transaction);
     }
@@ -64,6 +69,13 @@ export class AddTransactionComponent implements OnInit {
 
   cleanUpForm() {
     this.addItemForm.reset();
+    this.addItemForm.setValue({
+      group: 'misc',
+      transaction: {
+        name: null,
+        amount: 0,
+      }
+    });
     this.editMode = false;
     this.originalGroup = null;
   }
