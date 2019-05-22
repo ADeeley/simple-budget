@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InoutComponent } from './inout.component';
+import { TotalComponent } from './total.component';
 
-describe('InoutComponent', () => {
-  let component: InoutComponent;
-  let fixture: ComponentFixture<InoutComponent>;
+describe('TotalComponent', () => {
+  let component: TotalComponent;
+  let fixture: ComponentFixture<TotalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InoutComponent ]
+      declarations: [ TotalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InoutComponent);
+    fixture = TestBed.createComponent(TotalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

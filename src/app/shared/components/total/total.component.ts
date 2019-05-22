@@ -3,8 +3,8 @@ import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-total',
-  templateUrl: './inout.component.html',
-  styleUrls: ['./inout.component.sass']
+  templateUrl: './total.component.html',
+  styleUrls: ['./total.component.sass']
 })
 export class TotalComponent implements OnInit {
   sumTotal = '0.00';
