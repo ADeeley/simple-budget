@@ -12,7 +12,7 @@
     <tr *ngFor="let transaction of transactionGroups[group]; index as i">
       <td>{{group}}</td>
       <td>{{transaction.name}}</td>
-      <td>&pound;{{transaction.amount}}</td>
+      <td>{{transaction.amount | currency: '£'}}</td>
       <td *ngIf="editable"><i (click)="editTransaction(group, i)" class="fa fa-edit fa-2x"></i></td>
     </tr>
   </tbody>

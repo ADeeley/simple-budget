@@ -12,13 +12,9 @@ export class TotalComponent implements OnInit {
 
   constructor(private transactionService: TransactionService) { }
 
-  zeroFill(num: number): string {
-    return num.toString() + '.00';
-  }
-
   ngOnInit() {
-    this.sumTotal = this.transactionService.getSumTotal().toFixed(2);
-    this.transactionService.onSumTotalChange.subscribe((sum: number) => { this.sumTotal = sum.toFixed(2); });
+    this.sumTotal = this.transactionService.getSumTotal().toString();
+    this.transactionService.onSumTotalChange.subscribe((sum: number) => { this.sumTotal = sum.toString(); });
   }
 
 }

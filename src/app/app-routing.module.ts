@@ -7,9 +7,9 @@ import { AboutComponent } from './about/about.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 
 const routes: Routes = [
-  { path: 'about', component: AboutComponent},
-  { path: 'add', component: AddTransactionComponent},
-  { path: 'dashboard', component: DashboardComponent},
+  { path: 'about', component: AboutComponent },
+  { path: 'add', component: AddTransactionComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'not-found', component: ErrorPageComponent },
   { path: 'transactions', component: TransactionsComponent },
   { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
@@ -17,7 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
