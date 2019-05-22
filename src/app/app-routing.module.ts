@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'not-found', component: ErrorPageComponent },
   { path: 'transactions', component: TransactionsComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
   { path: '**', redirectTo: '/not-found' },
 ];
 
